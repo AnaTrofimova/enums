@@ -1,0 +1,38 @@
+
+enum Month: Int {
+    case january = 1, february = 2, march = 3, april = 4, may = 5, june = 6, july = 7, august = 8, september = 9, october = 10, november = 11, december = 12
+}
+
+enum DayOfWeek: String {
+    case sunday, monday, tuesday, wednesday, thursday, friday, saturday
+}
+
+enum Gender {
+    case male, female
+}
+
+enum AgeCategory {
+    case young, adult, senior
+}
+
+enum Experience {
+    case junior, middle, senior
+}
+
+enum RainbowColor: String {
+    case red, orange, yellow, green, blue, indigo, violet
+}
+
+func printEnumContent() {
+    let colors: [RainbowColor] = [.red, .orange, .yellow, .green, .blue, .indigo, .violet]
+    let items: [(Month, RainbowColor)] = [
+        (.january, .red),
+        (.may, .green),
+        (.june, .blue),
+    ]
+    
+    for (month, color) in items {
+        print("Месяц \(month.rawValue) - \(color.rawValue)")
+    }
+}
+printEnumContent()
