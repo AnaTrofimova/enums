@@ -1,0 +1,40 @@
+enum Score: String {
+    case A = "Отлично"
+    case B = "Хорошо"
+    case C = "Удовлетворительно"
+    case D = "Неудовлетворительно"
+}
+
+func getNumericScore(from string: String) -> Int? {
+    switch string {
+    case Score.A.rawValue:
+        return 5
+    case Score.B.rawValue:
+        return 4
+    case Score.C.rawValue:
+        return 3
+    case Score.D.rawValue:
+        return 2
+    default:
+        return nil
+    }
+}
+
+func inputScore() -> String {
+    print("Введите оценку (Отлично, Хорошо, Удовлетворительно, Неудовлетворительно):")
+    if let score = readLine(), Score(rawValue: score) != nil {
+        return score
+    } else {
+        print("Некорректная оценка! Попробуйте еще раз.")
+        return inputScore()
+    }
+}
+
+let studentScoreString = inputScore()
+if let numericScore = getNumericScore(from: studentScoreString) {
+    print("Студент получил оценку \(numericScore)")
+} else {
+    print("Оценка не найдена")
+}
+
+
