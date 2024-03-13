@@ -1,0 +1,34 @@
+enum Car {
+    case sedan
+    case bike
+    case truck
+    case sportsCar
+}
+
+class Garage {
+    var carsInGarage: [Car] = []
+    func printCarsInGarage() {
+        if carsInGarage.isEmpty {
+            print("В гараже нет автомобилей")
+        } else {
+            print("Автомобили, стоящие в гараже:")
+            for car in carsInGarage {
+                switch car {
+                case .sedan:
+                    print("Седан")
+                case .bike:
+                    print("Велик")
+                case .truck:
+                    print("Грузовик")
+                case .sportsCar:
+                    print("Спортивный автомобиль")
+                }
+            }
+        }
+    }
+}
+
+let myGarage = Garage()
+myGarage.carsInGarage = [.sedan, .bike, .sportsCar]
+
+myGarage.printCarsInGarage()
